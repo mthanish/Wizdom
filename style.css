@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  header {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 20px;
+  }
+  
+  header h1 {
+    text-align: center;
+  }
+  
+  .intro {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .intro img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto; /* Center image horizontally */
+  }
+  
+  .activities {
+    background-color: #e0e0e0;
+    padding: 40px;
+  }
+  
+  .activities h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .activities ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .activities li {
+    margin: 10px 0;
+  }
+  
+  .activities a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
