@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color:rgb(80, 62, 39);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('maxresdefault.jpg'); /* Replace 'background.jpg' with your image file name */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+img{
+    align-items: center;
+    padding-right: 10% ;
+
+}
+
+.game-container {
+    background-color:beige;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input, button {
+    margin: 10px;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color:darkblue;
+    cursor: not-allowed;
+}
+
+#result {
+    font-weight: bold;
+    color: #333;
+}
+
+.score, .timer {
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+}
+
+#score, #time {
+    font-weight: bold;
+}
+
+div,img{
+    align-items: center;
+    size: 2cm;
+}
