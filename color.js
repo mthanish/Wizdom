@@ -1,24 +1,36 @@
-const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
+document.addEventListener('DOMContentLoaded', function() {
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
 
-function createColoringCanvas(rows, columns) {
-    const coloringContainer = document.getElementById('coloring-container');
-    const canvas = document.createElement('table');
-    canvas.classList.add('coloring-canvas');
+    var isDrawing = false;
+    var currentColor = 'black';
 
-    for (let i = 0; i < rows; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < columns; j++) {
-            const cell = document.createElement('td');
-            cell.addEventListener('click', () => {
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                cell.style.backgroundColor = randomColor;
-            });
-            row.appendChild(cell);
+    canvas.addEventListener('mousedown', function(event) {
+        isDrawing = true;
+        draw(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
+    });
+
+    canvas.addEventListener('mousemove', function(event) {
+        if (isDrawing) {
+            draw(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
         }
-        canvas.appendChild(row);
+    });
+
+    canvas.addEventListener('mouseup', function() {
+        isDrawing = false;
+    });
+
+    function draw(x, y) {
+        context.beginPath();
+        context.arc(x, y, 5, 0, 2 * Math.PI);
+        context.fillStyle = currentColor;
+        context.fill();
     }
 
-    coloringContainer.appendChild(canvas);
-}
-
-// Create a coloring canvas with 10 rows and
+    var colorButtons = document.querySelectorAll('.color');
+    colorButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            currentColor = button.style.backgroundColor;
+        });
+    });
+});
