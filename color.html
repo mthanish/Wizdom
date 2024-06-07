@@ -10,13 +10,21 @@
     <div id="container">
         <h1>Coloring for Kids</h1>
         <canvas id="canvas" width="800" height="600"></canvas>
-        <div id="color-palette">
-            <button class="color" style="background-color: red;"></button>
-            <button class="color" style="background-color: blue;"></button>
-            <button class="color" style="background-color: yellow;"></button>
-            <button class="color" style="background-color: green;"></button>
-            <button class="color" style="background-color: whitesmoke;"></button>
-            <button class="color" style="background-color: purple;"></button>
+        <div id="toolbox">
+            <div id="color-palette">
+                <button class="color" style="background-color: red;"></button>
+                <button class="color" style="background-color: blue;"></button>
+                <button class="color" style="background-color: yellow;"></button>
+                <button class="color" style="background-color: green;"></button>
+                <button class="color" style="background-color: whitesmoke;"></button>
+                <button class="color" style="background-color: purple;"></button>
+            </div>
+            <button id="eraser" class="tool"><img src="eraser-icon.png" alt="Eraser"></button>
+        </div>
+        <div id="stencils">
+            <button class="stencil" data-shape="circle">Circle</button>
+            <button class="stencil" data-shape="square">Square</button>
+            <button class="stencil" data-shape="star">Star</button>
         </div>
     </div>
     <script src="color.js"></script>
