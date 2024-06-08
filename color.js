@@ -10,15 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.addEventListener('mousedown', function(event) {
         isDrawing = true;
         if (currentTool === 'draw') {
-            draw(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
+            draw(event.offsetX, event.offsetY);
         } else if (currentTool === 'stencil' && currentStencil) {
-            drawStencil(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop, currentStencil);
+            drawStencil(event.offsetX, event.offsetY, currentStencil);
         }
     });
 
     canvas.addEventListener('mousemove', function(event) {
         if (isDrawing && currentTool === 'draw') {
-            draw(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
+            draw(event.offsetX, event.offsetY);
+        } else if (isDrawing && currentTool === 'erase') {
+            erase(event.offsetX, event.offsetY);
         }
     });
 
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var y = cy;
         var step = Math.PI / spikes;
 
-        context.beginPath();
         context.moveTo(cx, cy - outerRadius);
         for (let i = 0; i < spikes; i++) {
             x = cx + Math.cos(rot) * outerRadius;
@@ -67,6 +68,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         context.lineTo(cx, cy - outerRadius);
         context.closePath();
+    }
+
+    function erase(x, y) {
+        context.clearRect(x - 10, y - 10, 20, 20);
+    }
+
+    function loadTemplate(template) {
+        var img = new Image();
+        img.onload = function() {
+            context.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing template
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        img.src = template;
     }
 
     var colorButtons = document.querySelectorAll('.color');
@@ -90,13 +104,11 @@ document.addEventListener('DOMContentLoaded', function() {
         currentTool = 'erase';
     });
 
-    canvas.addEventListener('mousemove', function(event) {
-        if (isDrawing && currentTool === 'erase') {
-            erase(event.pageX - canvas.offsetLeft, event.pageY - canvas.offsetTop);
-        }
+    var templateButtons = document.querySelectorAll('.template');
+    templateButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var template = button.getAttribute('data-template');
+            loadTemplate(template + '.png');  // Assuming the template images are named template1.png, template2.png, etc.
+        });
     });
-
-    function erase(x, y) {
-        context.clearRect(x - 10, y - 10, 20, 20);
-    }
 });
