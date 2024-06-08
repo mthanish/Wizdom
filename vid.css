@@ -1,13 +1,15 @@
 body {
-    background-color: #121212;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
+    position: relative;
+    background-image: url('story.jpg');
 }
 
 .container {
@@ -17,12 +19,13 @@ body {
 .heading {
     font-size: 2.5em;
     margin-bottom: 0.5em;
+    color: #000b0d;
 }
 
 .subheading {
     font-size: 1.5em;
     margin-bottom: 1.5em;
-    color: #bbb;
+    color: #1275b7;
 }
 
 .video-container {
@@ -33,48 +36,31 @@ body {
 
 .video {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 5px solid #61dafb;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-.controls {
-    position: absolute;
+.custom-button {
+    position: fixed;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.btn {
-    width: 40px;
-    height: 40px;
+    right: 20px;
+    background-color: #61dafb;
+    color: #fff;
     border: none;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.btn:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+.custom-button:hover {
+    background-color: #21a1f1;
+    transform: scale(1.1);
 }
 
-.btn:focus {
+.custom-button:focus {
     outline: none;
-}
-
-.prev::before {
-    content: '⏮';
-    font-size: 20px;
-    color: #fff;
-}
-
-.next::before {
-    content: '⏭';
-    font-size: 20px;
-    color: #fff;
 }

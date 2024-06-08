@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Quiz</title>
+    <title>Quiz Page</title>
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Kids Quiz</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <p>1. What is the capital of France?</p>
-                <label><input type="radio" name="q1" value="Paris"> Paris</label><br>
-                <label><input type="radio" name="q1" value="London"> London</label><br>
-                <label><input type="radio" name="q1" value="Rome"> Rome</label>
+    <div class="container">
+        <h1 class="heading">Quiz Time!</h1>
+        <h2 class="subheading">Test your knowledge</h2>
+        <div class="quiz-container" id="quiz-container">
+            <div class="quiz-item" id="quiz-item-3">
+                <h3>Question 3: What is the largest planet in our solar system?</h3>
+                <button class="option" data-answer="correct">Jupiter</button>
+                <button class="option" data-answer="wrong">Saturn</button>
+                <button class="option" data-answer="wrong">Earth</button>
+                <button class="option" data-answer="wrong">Mars</button>
+                <p class="feedback" id="feedback-3"></p>
             </div>
-            <div class="question">
-                <p>2. What is 2 + 2?</p>
-                <label><input type="radio" name="q2" value="3"> 3</label><br>
-                <label><input type="radio" name="q2" value="4"> 4</label><br>
-                <label><input type="radio" name="q2" value="5"> 5</label>
+            <div class="quiz-item" id="quiz-item-4">
+                <h3>Question 4: Who wrote 'To Kill a Mockingbird'?</h3>
+                <button class="option" data-answer="correct">Harper Lee</button>
+                <button class="option" data-answer="wrong">Mark Twain</button>
+                <button class="option" data-answer="wrong">J.K. Rowling</button>
+                <button class="option" data-answer="wrong">Ernest Hemingway</button>
+                <p class="feedback" id="feedback-4"></p>
             </div>
-            <div class="question">
-                <p>3. What is the color of the sky?</p>
-                <label><input type="radio" name="q3" value="Blue"> Blue</label><br>
-                <label><input type="radio" name="q3" value="Green"> Green</label><br>
-                <label><input type="radio" name="q3" value="Red"> Red</label>
+            <div class="quiz-item" id="quiz-item-5">
+                <h3>Question 5: What is the boiling point of water?</h3>
+                <button class="option" data-answer="correct">100°C</button>
+                <button class="option" data-answer="wrong">50°C</button>
+                <button class="option" data-answer="wrong">150°C</button>
+                <button class="option" data-answer="wrong">200°C</button>
+                <p class="feedback" id="feedback-5"></p>
             </div>
-            <button type="button" onclick="submitQuiz()">Submit</button>
-        </form>
-        <div id="result"></div>
+            <div class="quiz-item" id="quiz-item-6">
+                <h3>Question 6: What is the capital of Japan?</h3>
+                <button class="option" data-answer="correct">Tokyo</button>
+                <button class="option" data-answer="wrong">Osaka</button>
+                <button class="option" data-answer="wrong">Kyoto</button>
+                <button class="option" data-answer="wrong">Nagoya</button>
+                <p class="feedback" id="feedback-6"></p>
+            </div>
+        </div>
+        <p id="final-message" class="final-message"></p>
     </div>
     <script src="quiz.js"></script>
 </body>
