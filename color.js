@@ -103,22 +103,5 @@ document.addEventListener('DOMContentLoaded', function() {
     eraserButton.addEventListener('click', function() {
         currentTool = 'erase';
     });
-
-    var templateButtons = document.querySelectorAll('.template');
-    templateButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var template = button.getAttribute('data-template');
-            loadTemplate(template + '.png');  // Assuming the template images are named template1.png, template2.png, etc.
-        });
-    });
-
-    function loadTemplate(template) {
-        var img = new Image();
-        img.onload = function() {
-            context.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing template
-            context.drawImage(img, 0, 0, canvas.width, canvas.height);
-        };
-        img.src = "templates/" + template + ".png"; // Assuming your template images are located in a folder named "templates"
-    }
     
 });
